@@ -96,14 +96,15 @@ extern "C" {
 	class NewtonDeformableMeshSegment;
 	class NewtonFracturedCompoundMeshPart;
 #else
-	typedef struct NewtonMesh{} NewtonMesh;
-	typedef struct NewtonBody{} NewtonBody;
-	typedef struct NewtonWorld{} NewtonWorld;
-	typedef struct NewtonJoint{} NewtonJoint;
-	typedef struct NewtonMaterial{} NewtonMaterial;
-	typedef struct NewtonCollision{} NewtonCollision;
-	typedef struct NewtonDeformableMeshSegment{} NewtonDeformableMeshSegment;
-	typedef struct NewtonFracturedCompoundMeshPart{} NewtonFracturedCompoundMeshPart;
+	/*astrengine C API Fixes: removed "{}"*/
+	typedef struct NewtonMesh NewtonMesh;
+	typedef struct NewtonBody NewtonBody;
+	typedef struct NewtonWorld NewtonWorld;
+	typedef struct NewtonJoint NewtonJoint;
+	typedef struct NewtonMaterial NewtonMaterial;
+	typedef struct NewtonCollision NewtonCollision;
+	typedef struct NewtonDeformableMeshSegment NewtonDeformableMeshSegment;
+	typedef struct NewtonFracturedCompoundMeshPart NewtonFracturedCompoundMeshPart;
 #endif
 
 	typedef union 

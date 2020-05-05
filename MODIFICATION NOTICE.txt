@@ -1,0 +1,2 @@
+THIS IS A MODIFIED VERSION FOR ASTRENGINE. 
+Mostly just C API fixes, CMake alterations and some strip-downs.

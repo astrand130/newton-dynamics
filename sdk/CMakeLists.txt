@@ -63,7 +63,3 @@ if (NEWTON_WITH_REFERENCE_GPU_PLUGIN)
 	endif()
 	add_subdirectory(dgNewtonReferenceGPU)
 endif()
-	
-if (NEWTON_WITH_GPU_PLUGIN)
-#	add_subdirectory(dgNewtonVulkan)
-endif()
