@@ -10,7 +10,7 @@
 
 cmake_minimum_required(VERSION 3.4.0)
 
-option("NEWTON_BUILD_SANDBOX_DEMOS" "generates demos projects" "ON")
+option("NEWTON_BUILD_SANDBOX_DEMOS" "generates demos projects" OFF)
 option("NEWTON_BUILD_PROFILER" "build profiler" OFF)
 option("NEWTON_BUILD_SINGLE_THREADED" "multi threaded" OFF)
 option("NEWTON_DOUBLE_PRECISION" "generate double precision" OFF)
@@ -165,13 +165,6 @@ elseif(MINGW)
 	endif()
 endif()
 
-if(NEWTON_BUILD_SANDBOX_DEMOS STREQUAL "ON")
-  message("NEWTON_BUILD_SANDBOX_DEMOS is ${NEWTON_BUILD_SANDBOX_DEMOS}")
-  message("NEWTON_BUILD_CORE_ONLY is ${NEWTON_BUILD_CORE_ONLY}")
-  #message("setting core only OFF")
-  #set(NEWTON_BUILD_CORE_ONLY OFF)
-endif()
-
 #if(NEWTON_WITH_SSE4_PLUGIN OR NEWTON_WITH_AVX_PLUGIN OR NEWTON_WITH_AVX2_PLUGIN)
 # If building any of the plugins, then switch to shared libraries.
 # set(NEWTON_BUILD_SHARED_LIBS ON)
@@ -183,38 +176,3 @@ if(NEWTON_BUILD_PROFILER)
 endif()
 
 add_subdirectory(sdk)
-
-if (NEWTON_BUILD_SANDBOX_DEMOS STREQUAL "ON")
-	
-	message("BUILDING DEMOS.")
-	
-	add_subdirectory(applications/demosSandbox)
-	
-     if(UNIX)
-        find_package(glfw3 REQUIRED)
-
-        if(NOT_glfw3_FOUND)
-            message(WARNING "GLFW headers were not found. Disable NEWTON_BUILD_SANDBOX_DEMOS or install GLFW")
-        else(NOT_glfw3_FOUND)
-            message("Found GLFW library")
-        endif(NOT_glfw3_FOUND)
-        
-        find_package(OpenAL REQUIRED)
-
-        if(NOT_OpenAL_FOUND)
-            message(WARNING "OpenAL headers were not found. Disable NEWTON_BUILD_SANDBOX_DEMOS or install OpenAL")
-        else(NOT_OpenAL_FOUND)
-            message("Found OpenAL library")
-        endif(NOT_OpenAL_FOUND)
-        
-        find_package(OpenGL REQUIRED)
-        
-        if(NOT_OpenGL_FOUND)
-            message(WARNING "OpenGL headers were not found. Disable NEWTON_BUILD_SANDBOX_DEMOS or install OpenGL")
-        else(NOT_OpenGL_FOUND)
-            message("Found OpenGL library")
-        endif(NOT_OpenGL_FOUND)
-        
-      endif(UNIX)
-endif()
-
