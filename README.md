@@ -41,3 +41,7 @@ See `LICENSE` for the full content of the licenses.
 Authors
 =======
 Newton Dynamics is a project of Julio Jerez and Alain Suero. See `AUTHORS` for a full list of contributors.
+
+Modification Notice
+=======
+This version has been modified and stripped down for use in astrengine.
